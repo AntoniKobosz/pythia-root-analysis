@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/home/antek/Documents/MyCFolder/CERN/zadanieRekrutacyjne/build",
-  "command": "/usr/bin/c++  -isystem /home/antek/Documents/MyCFolder/CERN/zadanieRekrutacyjne/include -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles/ZadanieRekrutacyjne.dir/src/main.cpp.o -c /home/antek/Documents/MyCFolder/CERN/zadanieRekrutacyjne/src/main.cpp",
-  "file": "/home/antek/Documents/MyCFolder/CERN/zadanieRekrutacyjne/src/main.cpp",
-  "output": "CMakeFiles/ZadanieRekrutacyjne.dir/src/main.cpp.o"
-}
-]
