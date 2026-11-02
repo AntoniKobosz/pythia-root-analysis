@@ -1,0 +1,3 @@
+/home/antek/Documents/MyCFolder/CERN/zadanieRekrutacyjne/build/CMakeFiles/ZadanieRekrutacyjne.dir
+/home/antek/Documents/MyCFolder/CERN/zadanieRekrutacyjne/build/CMakeFiles/edit_cache.dir
+/home/antek/Documents/MyCFolder/CERN/zadanieRekrutacyjne/build/CMakeFiles/rebuild_cache.dir
