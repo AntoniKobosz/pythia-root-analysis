@@ -1,1 +1,5 @@
 build/*
+*.py
+*.dat
+*.pdf
+events.root

@@ -1,37 +1,56 @@
-// Headers and Namespaces.
-#include "Pythia8/Pythia.h" // Include Pythia headers.
+#include "Pythia8/Pythia.h"
+#include "TFile.h"
+#include "TTree.h"
+#include <Pythia8/Basics.h>
 #include <Pythia8/Event.h>
-#include <iostream>
-using namespace Pythia8;    // Let Pythia8:: be implicit.
-int main(int argc, char* argv[]) {                // Begin main program.
-  // Set up generation.
-  Pythia pythia;                          // Declare a Pythia object
+#include <Pythia8/NucleonExcitations.h>
+using namespace Pythia8;
+int main(int argc, char *argv[]) {
+  Pythia pythia;
   pythia.readFile(argv[1]);
-  // pythia.readString("Top:gg2ttbar = on"); // Switch on process.
-  // pythia.readString("Top:qqbar2ttbar = on");
-  // pythia.readString("Beams:eCM = 8000."); // 8 TeV CM energy.
-  pythia.init(); // Initialize; incoming pp beams is default.
+  if (!pythia.init())
+    return 1;
 
-  Hist pT("top transverse momentum", 100, 0., 200.);
-  Hist eta("top pseudorapidity", 100, -5., 5.);
+  // Hist mult("Charged multiplicity", 100, -1, 400);
+
+  // test roota
+  TFile hfile("events.root", "RECREATE", "Finalne naladowane czastki");
+
+  std::vector<int> id;
+  std::vector<float> pt, eta, phi;
+  TTree tree("events", "pp 13.6 TeV");
+  tree.Branch("id", &id);
+  tree.Branch("pt", &pt);
+  tree.Branch("eta", &eta);
+  tree.Branch("phi", &phi);
 
   int nEvent = pythia.mode("Main:numberOfEvents");
   for (int iEvent = 0; iEvent < nEvent; ++iEvent) {
     pythia.next();
-    int iTop = 0;
+    // int nCharged = 0;
+    id.clear();
+    pt.clear();
+    eta.clear();
+    phi.clear();
     for (Particle particle : pythia.event) {
-      if (particle.id() == 6) {
-        iTop = particle.id();
-      }
+      if (!particle.isFinal() || !particle.isCharged())
+        continue;
+      id.push_back(particle.id());
+      pt.push_back(particle.pT());
+      eta.push_back(particle.eta());
+      phi.push_back(particle.phi());
     }
-    Particle finalTop = pythia.event[iTop];
-    cout << "Final Top pT:" << finalTop.pT() << endl;
-    pT.fill(finalTop.pT());
-    eta.fill(finalTop.eta());
-
+    tree.Fill();
+    // mult.fill(nCharged);
   }
-  cout << pT ;
-  cout << eta;
+  // cout << mult;
+
+  // Test plotowania w py
+  // HistPlot hpl("myPlot01");
+  // hpl.plotFrame("fig1", mult, "title", "xlab", "ylab");
+
+  tree.Print();
+  hfile.Write();
 
   pythia.stat();
   return 0;

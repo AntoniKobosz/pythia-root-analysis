@@ -1,10 +1,6 @@
-! t tbar production at the LHC
-Beams:idA = 2212 ! first incoming beam is a 2212, i.e. a proton.
-Beams:idB = 2212 ! second beam is also a proton.
-Beams:eCM = 8000. ! the cm energy of collisions.
-Top:gg2ttbar = on ! switch on the process g g -> t tbar.
-Top:qqbar2ttbar = on ! switch on the process q qbar -> t tbar.
-Main:numberOfEvents = 100
-PartonLevel:FSR = off ! switch off final radiation
-PartonLevel:ISR = off ! switch off initial radiation
-PartonLevel:MPI = off ! switch off multiparton interaction
+# parametry zadania
+SoftQCD:nonDiffractive = on # minimum bias
+Beams:eCM = 13600. # the cm energy of collisions.
+Main:numberOfEvents = 1000 # na koniec dam 100 000
+Beams:idA = 2212 # proton.
+Beams:idB = 2212 # proton.
