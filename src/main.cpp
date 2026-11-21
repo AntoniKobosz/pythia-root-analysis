@@ -11,10 +11,8 @@ int main(int argc, char *argv[]) {
   if (!pythia.init())
     return 1;
 
-  // Hist mult("Charged multiplicity", 100, -1, 400);
 
-  // test roota
-  TFile hfile("events.root", "RECREATE", "Finalne naladowane czastki");
+  TFile hfile("data/events.root", "RECREATE", "Finalne naladowane czastki");
 
   std::vector<int> id;
   std::vector<float> pt, eta, phi;
@@ -27,7 +25,6 @@ int main(int argc, char *argv[]) {
   int nEvent = pythia.mode("Main:numberOfEvents");
   for (int iEvent = 0; iEvent < nEvent; ++iEvent) {
     pythia.next();
-    // int nCharged = 0;
     id.clear();
     pt.clear();
     eta.clear();
@@ -41,14 +38,7 @@ int main(int argc, char *argv[]) {
       phi.push_back(particle.phi());
     }
     tree.Fill();
-    // mult.fill(nCharged);
   }
-  // cout << mult;
-
-  // Test plotowania w py
-  // HistPlot hpl("myPlot01");
-  // hpl.plotFrame("fig1", mult, "title", "xlab", "ylab");
-
   tree.Print();
   hfile.Write();
 

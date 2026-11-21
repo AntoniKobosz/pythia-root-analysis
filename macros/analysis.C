@@ -10,7 +10,7 @@
 void analysis() {
 
   // wczytanie danych
-  TFile fin("events.root", "READ");
+  TFile fin("data/events.root", "READ");
 
   TTreeReader reader("events", &fin);
 
@@ -21,7 +21,7 @@ void analysis() {
   TTreeReaderValue<std::vector<float>> phi(reader, "phi");
 
   // plik wynikowy
-  TFile fout("analysis.root", "RECREATE");
+  TFile fout("data/analysis.root", "RECREATE");
   fout.cd();
 
   const char *tag[7] = {"all", "pip", "pim", "Kp", "Km", "p", "pbar"};
@@ -60,7 +60,7 @@ void analysis() {
   }
 
   fout.Write();
-  std::cout << "Zapisano do " << "analysis.root" << std::endl;
+  std::cout << "Zapisano do " << "data/analysis.root" << std::endl;
   fout.Close();
   fin.Close();
   std::cout << "Przerobiono " << processed_events << " zderzeń" << std::endl;

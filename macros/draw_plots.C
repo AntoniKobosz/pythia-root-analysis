@@ -7,7 +7,7 @@
 
 void draw_plots() {
 
-  TFile fin("analysis.root", "READ");
+  TFile fin("data/analysis.root", "READ");
 
   const char *tag[7] = {"all", "pip", "pim", "Kp", "Km", "p", "pbar"};
   const char *tagLatex[7] = {"all charged particles",

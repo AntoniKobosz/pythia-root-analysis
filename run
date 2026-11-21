@@ -3,14 +3,15 @@ set -e
 
 case "$1" in
   gen)
+    [ -d build ] || cmake -S . -B build
     cmake --build build -j
-    ./build/zadanieRekrutacyjne include/main.cmnd
+    ./build/main include/main.cmnd
     ;;
   ana)
-    root -l -b -q analysis.C
+    root -l -b -q macros/analysis.C
     ;;
   plot)
-    root -l -b -q draw_plots.C
+    root -l -b -q macros/draw_plots.C
     ;;
   all|"")
     "$0" gen

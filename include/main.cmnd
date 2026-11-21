@@ -1,6 +1,6 @@
 # parametry zadania
 SoftQCD:nonDiffractive = on # minimum bias
 Beams:eCM = 13600. # the cm energy of collisions.
-Main:numberOfEvents = 100000 # na koniec dam 100 000
+Main:numberOfEvents = 1000 # na koniec dam 100 000
 Beams:idA = 2212 # proton.
 Beams:idB = 2212 # proton.
