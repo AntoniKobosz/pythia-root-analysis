@@ -1,5 +1,6 @@
 build/*
 *.py
 *.dat
-*.pdf
+# *.pdf
 events.root
+analysis.root
