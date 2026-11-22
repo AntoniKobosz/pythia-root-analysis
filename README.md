@@ -39,9 +39,9 @@ Komendy uruchamia się z katalogu głównego repozytorium.
 
 | Komenda      | Działanie                                                        |
 |--------------|------------------------------------------------------------------|
-| `./run gen`  | Budowa projektu i generacja zdarzeń. Zapisze zdarzenie w `events.root` |
-| `./run ana`  | Analiza (`macros/analysis.C`) stworzy plik `analysis.root`          |
-| `./run plot` | Wykresy (`macros/draw_plots.C`) zapisze wykresy do plots.pdf                      |
+| `./run gen`  | Budowa projektu i generacja zdarzeń. Zapisze zdarzenia do `events.root` |
+| `./run ana`  | Analiza (`macros/analysis.C`). Stworzy plik `analysis.root`          |
+| `./run plot` | Wykresy (`macros/draw_plots.C`). Zapisze wykresy do `plots.pdf`                      |
 | `./run all`  | Wszystkie kroki po kolei (to samo co `./run`)                    |
 
 Parametry generacji zmienia się w `include/main.cmnd`.
