@@ -28,6 +28,7 @@ void draw_plots() {
   }
 
   TCanvas *canvas = new TCanvas("canvas", "GridCanvas");
+  gStyle->SetOptStat("emr"); // okienko ze statystykami
   for (int i = 0; i < 7; ++i) {
     // Wspólne ustawienia
     for (TH1F *h : {hN[i], hPt[i], hPhi[i], hEta[i]}) {
@@ -56,7 +57,6 @@ void draw_plots() {
     hPt[i]->SetTitle(
         Form("Transverse momentum distribution of %s", tagLatex[i]));
     hPt[i]->GetXaxis()->SetTitle("p_{T} [GeV]");
-    hPt[i]->GetYaxis()->SetTitle("count");
     hPt[i]->Draw();
 
     canvas->cd(3);
@@ -67,7 +67,6 @@ void draw_plots() {
     canvas->cd(4);
     hEta[i]->SetTitle(Form("Pseudorapidity distribution of %s", tagLatex[i]));
     hEta[i]->GetXaxis()->SetTitle("#eta");
-    hEta[i]->GetYaxis()->CenterTitle();
     hEta[i]->Draw();
 
     const char *name = i == 0   ? "plots.pdf("
