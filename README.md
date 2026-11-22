@@ -1,4 +1,4 @@
-# zadanieRekrutacyjne
+# pythia-root-analysis
 
 Generacja zdarzeń w Pythii 8, analiza i wykresy w ROOT-cie.
 
@@ -15,13 +15,13 @@ Pythia musi znajdować się w katalogu `pythia8318` obok repozytorium (katalog n
 ```
 <katalog_nadrzędny>/
 ├── pythia8318/
-└── zadanieRekrutacyjne/
+└── pythia-root-analysis/
 ```
 
 ```bash
 cd pythia8318
 ./configure && make -j
-cd ../zadanieRekrutacyjne
+cd ../pythia-root-analysis
 chmod +x run
 ```
 
